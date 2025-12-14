@@ -10,7 +10,7 @@ type InputNewTodoProps = {
 type InputNewTodoState = {
     value: string
 }
-//1. InputNewTodo это контролд элемент и ему не нужен свой state
+//1. InputNewTodo это controld элемент и ему не нужен свой state
 
 export class InputNewTodo extends React.Component<InputNewTodoProps, InputNewTodoState> {
     componentDidUpdate(prevProps: Readonly<InputNewTodoProps>, prevState: Readonly<InputNewTodoState>, snapshot?: any) {

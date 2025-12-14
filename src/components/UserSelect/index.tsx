@@ -11,7 +11,7 @@ function UserSelect(props: UserSelectProps) {
     const dispatch = useDispatch();
     const todos = useSelector((state: {list: { todos: any[] }}) => state.list.todos);
 //1. Вместо React.useEffect мы можем импортировать useEffect из react
-//2. Мы можем использовать toolkit query чтобы фетчить пользователей и хранить их в отдельном слайсе.
+//2. Мы можем использовать toolkit query чтобы фетчить пользователей и хранить их в отдельном slice.
     React.useEffect(
         () => {
             console.log('userSelect');
@@ -36,7 +36,7 @@ function UserSelect(props: UserSelectProps) {
             }
             return res;
         })
-//6. Нет такого ивента как 'CHANGE_TODO'
+//6. Нет такого event как 'CHANGE_TODO'
         dispatch({type: 'CHANGE_TODO', payload: changedTodos})
     }
 
