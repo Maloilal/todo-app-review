@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './index';
 
-//1. Тесты не запускаются. 
+// 1. Tests do not run.
 
 test('renders learn react link', () => {
   render(<App />);

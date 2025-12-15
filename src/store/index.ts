@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
-// 1. В данном случае используется устаревший способ написания редьюсера, можно использовать createSlice из redux-toolkit и создать отдельный слайс для todo
-// 2. Нужно типизировать todo items.
+// 1. Here, an outdated way of writing the reducer is used. We can use createSlice from Redux Toolkit and create a separate slice for todos
+// 2. Todo items need to be typed
 export default configureStore({
     reducer: {
         list: (state = {todos: []}, action) => {

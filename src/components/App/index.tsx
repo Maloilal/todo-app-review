@@ -1,15 +1,15 @@
-// React и logo импортируются, но не используются 
+// React and logo are imported but not used
 import React from "react";
 import logo from "../../logo.svg";
 import "./App.css";
 import MainApp from "../MainApp";
 import { useSelector } from "react-redux";
 
-// 1. Неоднородное форматирование кода лучше использовать prettier или eslint
-// 2. Комментарии к коду избыточные и неоднородные
-// 3. Имеется закомментированный код. Лучше код удалять и для восстановления использовать git.
-// 4. В useSelector указан кастомный тип store, лучше хранить типы в отдельных файлах, для переиспользования.
-// 5. Мы используем useSelector на уровне App component, и передаём в MainApp, но MainApp подключён к редаксу и может доставать данные сам. Это антипаттерн propsdrilling
+// 1. Inconsistent code formatting — it’s better to use Prettier or ESLint
+// 2. Code comments are excessive and inconsistent
+// 3. There is commented-out code. It’s better to remove unused code and rely on Git to restore it if needed
+// 4. A custom store type is specified in useSelector; it’s better to keep types in separate files for reuse
+// 5. useSelector is used at the App component level and the data is passed to MainApp, but MainApp is already connected to Redux and can access the data itself. This is a props drilling antipattern
 function App() {
   const todos = useSelector(
     (state: { list: { todos: any[] } }) => state.list.todos

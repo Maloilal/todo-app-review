@@ -20,7 +20,8 @@ type MainAppProps = {
 type MainAppState = {
     todoTitle: string
 };
-//1. Использование классовых компонентов, версия реакта в проекте позволяет использовать функциональные компоненты.
+// 1. The use of class components — the React version in the project allows using functional components instead
+
 class Index extends React.Component<MainAppProps, MainAppState> {
     constructor(props: MainAppProps) {
         super(props);
@@ -36,10 +37,10 @@ class Index extends React.Component<MainAppProps, MainAppState> {
 
     render() {
         const { todoTitle } = this.state;
-//2. Лучше не записывать ничего в window. Темболее, что кроме этого компонента это значение нигде не используется. 
-//3. Удаление allTodosIsDone из window позволяет нам удалить файл global.d.ts
+// 2. It’s better not to write anything to window, especially since this value is not used anywhere outside this component
+// 3. Removing allTodosIsDone from window allows us to delete the global.d.ts file
         window.allTodosIsDone = true;
-//4. Вместо map можно использовать reduce.
+// 4. Instead of map, reduce can be used
         this.props.todos.map(t => {
             if (!t.isDone) {
                 window.allTodosIsDone = false
@@ -57,8 +58,8 @@ class Index extends React.Component<MainAppProps, MainAppState> {
                     <div className={styles.todo} >
                         {t.title}
                         <UserSelect user={t.user} idx={idx}/>
-{/*5. Вместо использования инлайновых стилей их можно вынести в отдельный класс*/}
-{/*6. Для onChange лучше написать отдельную функцию */}
+{/* 5. Instead of using inline styles, they can be moved to a separate class */}
+{/* 6. It’s better to define a separate function for onChange */}
                         <Form.Check
                             style={{ marginTop: -8, marginLeft: 5 }}
                             type="checkbox" checked={t.isDone} onChange={(e) => {
@@ -88,7 +89,7 @@ export default connect(
             dispatch({type: 'ADD_TODO', payload: todo});
         },
         changeTodo: (todos: any) => dispatch({type: 'CHANGE_TODOS', payload: todos}),
-// 7. Нет такого обработчика 'REMOVE_TODOS'
+// 7. There is no such handler as 'REMOVE_TODOS'
         removeTodo: (index: number) => dispatch({type: 'REMOVE_TODOS', payload: index}),
     })
 

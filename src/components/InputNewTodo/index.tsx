@@ -10,7 +10,7 @@ type InputNewTodoProps = {
 type InputNewTodoState = {
     value: string
 }
-//1. InputNewTodo это controlled элемент и ему не нужен свой state
+// 1. InputNewTodo is a controlled component and does not need its own state
 
 export class InputNewTodo extends React.Component<InputNewTodoProps, InputNewTodoState> {
     componentDidUpdate(prevProps: Readonly<InputNewTodoProps>, prevState: Readonly<InputNewTodoState>, snapshot?: any) {
@@ -30,7 +30,7 @@ export class InputNewTodo extends React.Component<InputNewTodoProps, InputNewTod
         }
 
         event.preventDefault();
-//3. Лучше использовать let или const вместо var
+// 3. It’s better to use let or const instead of var
         var val = this.state.value.trim();
 
         if (val) {
