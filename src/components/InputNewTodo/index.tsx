@@ -10,6 +10,7 @@ type InputNewTodoProps = {
 type InputNewTodoState = {
     value: string
 }
+// 1. InputNewTodo is a controlled component and does not need its own state
 
 export class InputNewTodo extends React.Component<InputNewTodoProps, InputNewTodoState> {
     componentDidUpdate(prevProps: Readonly<InputNewTodoProps>, prevState: Readonly<InputNewTodoState>, snapshot?: any) {
@@ -23,12 +24,13 @@ export class InputNewTodo extends React.Component<InputNewTodoProps, InputNewTod
     }
 
     handleKeyDown = (event: React.KeyboardEvent) => {
+//2. keyCode deprecated
         if (event.keyCode !== 13) {
             return;
         }
 
         event.preventDefault();
-
+// 3. It’s better to use let or const instead of var
         var val = this.state.value.trim();
 
         if (val) {
